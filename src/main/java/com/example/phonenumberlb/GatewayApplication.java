@@ -17,8 +17,9 @@ public class GatewayApplication {
 
     @Bean
     public RouteLocator routerBuilder(RouteLocatorBuilder routeLocatorBuilder){
-        return routeLocatorBuilder.routes()
-                .route("Instance2",r->r.path("/api/**")
-                        .uri("lb://example-service")).build();
+        return routeLocatorBuilder.routes().route("roInstance",r->r.path("/api/getAllUsersData**","/api/getUser**","/api/searchUsers**")
+                        .uri("lb://ro-service"))
+                .route("rwInstance",r->r.path("/api/addUser**","/api/deleteUser**","/api/editUser**","/api/updatePhoneNumber**")
+                        .uri("http://localhost:8081")).build();
     }
 }

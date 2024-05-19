@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServerInstanceConfiguration {
     @Bean
-    public ServiceInstanceListSupplier serviceInstanceListSupplier() {
-        return new ServerInstanceSupplier("example-service");
+    public ServiceInstanceListSupplier ReadOnlyServiceInstanceListSupplier() {
+        return new ReadOnlyServerInstanceSupplier("ro-service");
     }
+
 }
